@@ -10,5 +10,6 @@ This project uses the :
 
 Other tools and technologies used:
 
-- [Bootstrap](http://www.getbootstrap.com): layout and styles
-- [Formik ](https://formik.org/): validation
+- [React-Bootstrap](https://react-bootstrap.github.io/): layout and styles
+- [Formik](https://formik.org/): Input Validation
+- [Router](https://reactrouter.com/): React Router v6
