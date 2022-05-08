@@ -6,7 +6,7 @@ This project uses the :
 
 - [**M**ySQL.](https://www.mysql.com/) : database
 - [**L**aravel](https://laravel.com/): backend framework
-- [**R**eact](https://en.reactjs.org/): frontend framework
+- [**R**eact](https://en.reactjs.org/): frontend library
 
 Other tools and technologies used:
 
