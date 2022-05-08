@@ -5,7 +5,7 @@ You will be able to calculate your age and you can register on a site and save t
 This project uses the :
 
 - [**M**ySQL.](https://www.mysql.com/) : database
-- [**L**arvel](https://laravel.com/): backend framework
+- [**L**aravel](https://laravel.com/): backend framework
 - [**R**eact](https://en.reactjs.org/): frontend framework
 
 Other tools and technologies used:
