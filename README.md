@@ -1,5 +1,5 @@
 # Age Calculator
-##Work in progress on the site
+**Work in progress on the site**
 
 
 You will be able to calculate your age and you can register on a site and save the ages of your friends
