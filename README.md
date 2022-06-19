@@ -1,4 +1,4 @@
-# Memorize ages and ount them
+# Memorize ages and count them
 
 **Work in progress on the site**
 
