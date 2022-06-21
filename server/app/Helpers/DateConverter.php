@@ -169,7 +169,7 @@ class DateConverter
             array_push($ageYear, $int - $yearUserArray[$i]);
             $i++;
         }
-        array_push($age, ['year' => implode("", $ageYear)]);
+        array_push($age, ['year' => +implode("", $ageYear)]);
 
         return $age;
     }
