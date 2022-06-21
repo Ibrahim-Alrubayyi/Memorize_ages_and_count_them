@@ -13,7 +13,7 @@ class AgeRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,16 @@ class AgeRequest extends FormRequest
     public function rules()
     {
         return [
+            // 'age' => 'required|numeric',
             'age' => 'required',
         ];
+    }
+    public function messages()
+    {
+        return [
+            'age.required' => 'العمر مطلوب',
+            // 'age.numeric'  => 'only int',
+        ];
+
     }
 }

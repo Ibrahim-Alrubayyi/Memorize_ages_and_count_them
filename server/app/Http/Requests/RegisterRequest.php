@@ -9,15 +9,31 @@ class RegisterRequest extends FormRequest
 
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     public function rules()
     {
         return [
-            'name'     => 'required|min:3|max:60',
-            'email' > 'required|max:100|unique:users',
+            'name'     => 'required|min:3|max:60|alpha_num',
+            'email'    => 'required|max:200|unique:users|email',
             'password' => 'required',
         ];
+    }
+    public function messages()
+    {
+        return [
+            'name.required'     => 'الاسم مطلوب',
+            'name.min'          => 'الاسم 3 احرف على الاقل',
+            'name.max'          => 'الاسم 60 حرف على الاكثر',
+            'name.alpha_num'    => 'احرف وارقام فقط',
+            'email.max'         => 'الايميل 200 حرف على الاكثر',
+            'email.required'    => 'الايميل مطلوب',
+            'email.email'       => 'كتابة ايميل بطريقه صحيحه',
+            'email.unique'      => 'ايميل مستعمل',
+            'password.required' => 'الرمز السري مطلوب',
+
+        ];
+
     }
 }
