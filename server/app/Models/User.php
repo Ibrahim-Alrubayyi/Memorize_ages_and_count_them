@@ -17,9 +17,15 @@ class User extends Authenticatable
         'password',
     ];
 
-    protected $hidden = [];
+    protected $hidden = [
+        'password', 'remember_token',
 
+    ];
     protected $dates = [
         'created_at', 'updated_at',
     ];
+    public function frindes()
+    {
+        return $this->hasMany(Friends::class, 'user_id', 'id');
+    }
 }

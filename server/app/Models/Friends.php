@@ -14,6 +14,7 @@ class Friends extends Model
         'user_id',
         'name',
         'age',
+        'type_date',
     ];
 
     protected $hidden = [];
@@ -21,8 +22,5 @@ class Friends extends Model
     protected $dates = [
         'created_at', 'updated_at',
     ];
-    public function frindes()
-    {
-        return $this->hasMany(User::class, 'user_id');
-    }
+
 }

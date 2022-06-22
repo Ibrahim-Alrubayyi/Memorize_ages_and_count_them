@@ -12,6 +12,7 @@ class Age extends Model
 
     protected $fillable = [
         'age',
+        'type_date',
     ];
     protected $hidden = [];
     protected $dates  = ['created_at', 'updated_at'];
