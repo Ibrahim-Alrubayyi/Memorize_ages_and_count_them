@@ -161,15 +161,13 @@ class DateConverter
             array_push($age, ['month' => $mNow - $mUser]);
         }
 
-        $yearNowArray  = str_split($yNow);
-        $yearUserArray = str_split($yUser);
-        $ageYear       = [];
-        $i             = 0;
-        foreach ($yearNowArray as $int) {
-            array_push($ageYear, $int - $yearUserArray[$i]);
-            $i++;
+        if ($yNow > $yUser) {
+            array_push($age, ['year' => +implode("", [($yNow - $yUser)])]);
+
+        } else {
+            array_push($age, ['year' => +implode("", [$yUser - $yNow])]);
+
         }
-        array_push($age, ['year' => +implode("", $ageYear)]);
 
         return $age;
     }
