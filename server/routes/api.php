@@ -1,7 +1,8 @@
 <?php
 
+use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\ClucAgeController;
-use App\Http\Controllers\RegisterOrLoginController;
+use App\Http\Controllers\FriendsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,8 +18,19 @@ use Illuminate\Support\Facades\Route;
 
 Route::post('/age', [ClucAgeController::class, 'clucAndSave']);
 
-Route::post('/register', [RegisterOrLoginController::class, 'register']);
-// if login you can use this rotes
-Route::group(['middleware' => 'checkUser'], function () {
+// Route::post('/register', [RegisterOrLoginController::class, 'register']);
+// Route::post('/login', [RegisterOrLoginController::class, 'login']);
 
+// if login you can use this rotes
+Route::group(['middleware' => 'auth:sanctum'], function () {
+    Route::get('/profile', [FriendsController::class, 'getAllFriends']);
+    Route::post('/profile/edit', [FriendsController::class, 'getAllFriends']);
+
+    Route::get('/friends', [FriendsController::class, 'getAllFriends']);
+    Route::post('/friend/add', [FriendsController::class, 'addFriend']);
+    Route::post('/friend/edit', [FriendsController::class, 'editFriend']);
+    Route::post('/friend/delete', [FriendsController::class, 'deleteFriend']);
 });
+
+Route::post('/auth/register', [AuthController::class, 'createUser']);
+Route::post('/auth/login', [AuthController::class, 'loginUser']);
