@@ -3,6 +3,7 @@
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\ClucAgeController;
 use App\Http\Controllers\FriendsController;
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,8 +24,8 @@ Route::post('/age', [ClucAgeController::class, 'clucAndSave']);
 
 // if login you can use this rotes
 Route::group(['middleware' => 'auth:sanctum'], function () {
-    Route::get('/profile', [FriendsController::class, 'getAllFriends']);
-    Route::post('/profile/edit', [FriendsController::class, 'getAllFriends']);
+    Route::get('/profile', [ProfileController::class, 'infoUser']);
+    Route::post('/profile/edit', [ProfileController::class, 'editUser']);
 
     Route::get('/friends', [FriendsController::class, 'getAllFriends']);
     Route::post('/friend/add', [FriendsController::class, 'addFriend']);
