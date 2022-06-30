@@ -11,11 +11,6 @@ import "../../styles/index.css";
 const Index = () => {
   const dispatch = useDispatch();
 
-  // const age = useSelector((state) => state.age);
-  // console.log(age);
-  useEffect(() => {
-    calcAge(dispatch, { year: "1F421", month: "1E1", day: "11" }, "");
-  }, []);
   return (
     <Container className="w-50  pb-3">
       {/* <iframe src="https://embed.lottiefiles.com/animation/110372"></iframe> */}
