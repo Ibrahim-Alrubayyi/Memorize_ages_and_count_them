@@ -2,7 +2,6 @@
 
 **Work in progress on the site**
 
-
 You will be able to calculate your age and you can register on a site and save the ages of your friends
 
 This project uses the :
@@ -16,3 +15,4 @@ Other tools and technologies used:
 - [React-Bootstrap](https://react-bootstrap.github.io/): layout and styles
 - [Formik](https://formik.org/): Input Validation
 - [Router](https://reactrouter.com/): React Router v6
+- [Redux](https://redux.js.org/): A Predictable State Container for JS Apps
