@@ -1,30 +1,33 @@
 import postAge from "../../adapters/postAge";
-import {
-  CALC_AGE_FROM_API,
-  DAY,
-  GR_ERORR,
-  HJ_ERORR,
-  MONTH,
-  REST_AGE,
-  YEAR,
-} from "./types";
+import { AGE, DAY, GR_ERORR, HJ_ERORR, MONTH, REST_AGE, YEAR } from "./types";
 
 export const calcAge = async (dispatch, age, typeDate) => {
   const calcWithAPI = await postAge(age, typeDate);
-  console.log(calcWithAPI);
+
   if (calcWithAPI.status === 200) {
     // to AgeReducser
     return dispatch({
-      type: CALC_AGE_FROM_API,
+      type: AGE,
       age: calcWithAPI.data,
       typeDate: typeDate,
     });
   } else {
+    let arrErr = [];
+    for (let key in calcWithAPI.data.errors) {
+      arrErr.push(calcWithAPI.data.errors[key]);
+    }
     // to errorReducser
-    return dispatch({
-      type: typeDate === "hj" ? HJ_ERORR : GR_ERORR,
-      erorr: calcWithAPI.data.errors,
-    });
+    if (typeDate === "hj") {
+      return dispatch({
+        type: HJ_ERORR,
+        er: arrErr,
+      });
+    } else {
+      return dispatch({
+        type: GR_ERORR,
+        er: arrErr,
+      });
+    }
   }
 };
 
