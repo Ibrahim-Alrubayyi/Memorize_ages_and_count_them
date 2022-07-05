@@ -1,0 +1,14 @@
+import Axios from "axios";
+export default async function postRegister(user) {
+  const url = "http://127.0.0.1:8000/api/auth/register";
+  console.log(user);
+  return await Axios.post(url, user, {
+    headers: { "Content-Type": "application/json" },
+  })
+    .then((res) => {
+      return res;
+    })
+    .catch((rej) => {
+      return rej;
+    });
+}
