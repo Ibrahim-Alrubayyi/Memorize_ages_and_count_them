@@ -1,19 +1,40 @@
 //REDUCER
 
+import HijriYear from "../../helpers/HijriYear";
 import { AGE, DAY, MONTH, REST_AGE, YEAR } from "../Actions/types";
 
 const initailState = {
-  gr: { year: "", month: "", day: "" },
-  hj: { year: "", month: "", day: "" },
+  gr: { year: new Date().getFullYear(), month: "1", day: "1" },
+  hj: { year: HijriYear, month: "1", day: "1" },
+  // info will set from api
+  calculatedAge: {
+    alert: false,
+    dateGr: "",
+    ageGr: [{ day: "" }, { month: "" }, { year: "" }],
+    ageHj: [{ day: "" }, { month: "" }, { year: "" }],
+    typeDate: "",
+  },
 };
 
 const AgeReducer = (state = initailState, action) => {
   switch (action.type) {
+    case AGE:
+      return {
+        ...state,
+        calculatedAge: {
+          ...state.calculatedAge,
+          alert: action.age.alert,
+          dateGr: action.age.dateGr,
+          ageGr: action.age.ageGr,
+          ageHj: action.age.ageHj,
+          typeDate: action.typeDate,
+        },
+      };
     case REST_AGE:
       return {
         ...state,
-        gr: { year: "", month: "", day: "" },
-        hj: { year: "", month: "", day: "" },
+        gr: { year: new Date().getFullYear(), month: "1", day: "1" },
+        hj: { year: HijriYear, month: "1", day: "1" },
       };
     case YEAR:
       if (action.dateType === "hj") {
@@ -21,9 +42,10 @@ const AgeReducer = (state = initailState, action) => {
           ...state,
 
           hj: {
+            // month: state.hj.month,
+            // day: state.hj.day,
+            ...state.hj,
             year: action.year,
-            month: state.hj.month,
-            day: state.hj.day,
           },
         };
       } else {

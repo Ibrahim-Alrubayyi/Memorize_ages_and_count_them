@@ -1,20 +1,37 @@
-import { LOGIN } from "../Actions/types";
+import { FORM_ERORR, GR_ERORR, HJ_ERORR } from "../Actions/types";
 
 const initailState = {
   input: {
     hj: [],
     gr: [],
+    form: { name: [], email: [], password: [] },
   },
 };
 
 const ErorrsReducer = (state = initailState, action) => {
   switch (action.type) {
-    case LOGIN:
+    case HJ_ERORR:
+      return Object.assign(state, {
+        input: Object.assign(state.input, { hj: action.er }),
+      });
+
+    case GR_ERORR:
+      return Object.assign(state, {
+        input: Object.assign(state.input, { gr: action.er }),
+      });
+    case FORM_ERORR:
+      // return Object.assign(state, {
+      //   input: Object.assign(state.input, {
+      //     form: Object.assign(state.input.form, { ...action.er }),
+      //   }),
+      // });
       return {
         ...state,
-        // logged: true,
+        input: {
+          ...state.input,
+          form: { ...action.er },
+        },
       };
-
     default:
       return state;
   }
