@@ -2,12 +2,14 @@ import * as React from "react";
 
 //Pages
 import Index from "../src/pages/ageCalculator/Index";
+import UserAge from "./pages/ageCalculator/UserAge";
 
 // components
 import Header from "../src/components/Header";
 import Footer from "../src/components/Footer";
 import { ThemeProvider } from "react-bootstrap";
 import { Routes, Route, Navigate, BrowserRouter } from "react-router-dom";
+import Register from "./pages/register&login/Register";
 function App() {
   return (
     <div className="App">
@@ -16,9 +18,10 @@ function App() {
           <Header />
           <Routes>
             <Route path="/" element={<Index />} />
+            <Route path="/age" element={<UserAge />} />
 
             <Route path="/login" element={<div>LOGIN</div>} />
-            <Route path="/register" element={<Index />} />
+            <Route path="/register" element={<Register />} />
 
             <Route path="/profile" element={<Index />} />
             <Route path="/profile/edit" element={<Index />} />
