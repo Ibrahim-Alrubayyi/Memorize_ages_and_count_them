@@ -25,10 +25,16 @@ const Header = () => {
             </Nav.Link>
 
             <Nav.Link
-              onClick={() => navigate("/login")}
+              onClick={() => navigate("/register")}
               className="color-black"
             >
               تسجيل
+            </Nav.Link>
+            <Nav.Link
+              onClick={() => navigate("/login")}
+              className="color-black"
+            >
+              تسجيل دخول
             </Nav.Link>
           </Nav>
         </Container>

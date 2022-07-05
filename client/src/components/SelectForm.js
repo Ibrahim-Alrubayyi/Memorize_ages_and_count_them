@@ -1,29 +1,17 @@
 import React, { Fragment, useEffect, useState } from "react";
 import Form from "react-bootstrap/Form";
 import { dayAction, monthAction, yearAction } from "../redux/Actions/ageAction";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
+//custem functions
+import range from "../helpers/rangeBetweenYears";
+import createArayOfNumberToDate from "../helpers/createArayOfNumberToDate";
+import HijriYear from "../helpers/HijriYear";
 const SelectForm = ({ numDate, nameDate, nameSelect, typeDate }) => {
   const dispatch = useDispatch();
-  const [year, setYear] = useState("");
-  const [month, setMonth] = useState("");
-  const [day, setDay] = useState("");
-
   const [years, setYears] = useState([]);
-  var GregorianYear = new Date().getFullYear();
-  var HijriYear = Math.round((GregorianYear - 622) * (33 / 32)) - 1;
 
-  const createArayOfNumberToDate = (num) => {
-    let arr = Array.from(Array(num + 1).keys());
-    arr.shift();
-    return arr;
-  };
-  //array [2022 , ...,1972 ]
-  const currentYear = typeDate == "gr" ? new Date().getFullYear() : HijriYear;
-  const range = (start, stop, step) =>
-    Array.from(
-      { length: (stop - start) / step + 1 },
-      (_, i) => start + i * step
-    );
+  const GregorianYear = new Date().getFullYear();
+  const currentYear = typeDate === "gr" ? GregorianYear : HijriYear;
 
   useEffect(() => {
     if (nameDate === "سنه") {
@@ -31,16 +19,13 @@ const SelectForm = ({ numDate, nameDate, nameSelect, typeDate }) => {
     }
   }, []);
 
-  //set values date
+  //set values date in store
   const changeStateDate = (e) => {
     if (nameSelect === "year") {
       yearAction(dispatch, e, typeDate);
     } else if (nameSelect === "month") {
-      // setMonth(e);
-
       monthAction(dispatch, e, typeDate);
     } else {
-      // setDay(e);
       dayAction(dispatch, e, typeDate);
     }
   };
