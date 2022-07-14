@@ -8,6 +8,7 @@ use App\Http\Requests\RegisterRequest;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Symfony\Component\HttpFoundation\Cookie;
 
 class AuthController extends Controller
 {
@@ -21,10 +22,15 @@ class AuthController extends Controller
                     'password' => Hash::make($request->password),
 
                 ]);
+
+                $token = $insert->createToken('API TOKEN')->plainTextToken;
+
+                $cookie = cookie('jwt', $token, 60 * 24);
+
                 return response()->json([
                     'alert' => true,
-                    'token' => $insert->createToken('API TOKEN')->plainTextToken,
-                ], 200);
+
+                ], 200)->withCookie($cookie);
 
             }
         } catch (\Throwable$th) {
