@@ -4,10 +4,9 @@ const initailState = {
   input: {
     hj: [],
     gr: [],
-    form: { name: [], email: [], password: [] },
+    form: [],
   },
 };
-
 const ErorrsReducer = (state = initailState, action) => {
   switch (action.type) {
     case HJ_ERORR:
@@ -29,7 +28,7 @@ const ErorrsReducer = (state = initailState, action) => {
         ...state,
         input: {
           ...state.input,
-          form: { ...action.er },
+          form: action.er,
         },
       };
     default:

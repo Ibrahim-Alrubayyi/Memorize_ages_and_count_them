@@ -7,20 +7,22 @@ const initailState = {
     name: "",
     email: "",
     password: "",
-    token: "",
   },
-  alert: false,
+
+  isLogin: false,
 };
 
 const UserReducer = (state = initailState, action) => {
   switch (action.type) {
     case LOGIN:
-      return {};
+      return {
+        ...state,
+        isLogin: true,
+      };
     case REGISTER:
       return {
         ...state,
-        user: { ...state.user, token: action.token },
-        alert: true,
+        isLogin: true,
       };
     case NAME:
       return {
