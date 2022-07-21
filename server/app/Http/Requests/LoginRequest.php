@@ -24,8 +24,8 @@ class LoginRequest extends FormRequest
     public function rules()
     {
         return [
-            'email'    => 'required|max:200|email',
-            'password' => 'required',
+            'email'    => 'required|max:200|email|exists:users',
+            'password' => 'required|required_with:password_confirmation',
         ];
     }
     public function messages()
@@ -34,8 +34,8 @@ class LoginRequest extends FormRequest
             'email.max'         => 'الايميل 200 حرف على الاكثر',
             'email.required'    => 'الايميل مطلوب',
             'email.email'       => 'كتابة ايميل بطريقه صحيحه',
+            'email.exists'      => 'ايميل غير موجود',
             'password.required' => 'الرمز السري مطلوب',
-
         ];
 
     }

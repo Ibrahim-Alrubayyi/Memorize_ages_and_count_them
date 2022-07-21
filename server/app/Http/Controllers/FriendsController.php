@@ -15,26 +15,31 @@ class FriendsController extends Controller
 
     public function getAllFriends()
     {
-        $AllInfo = User::where('id', '=', Auth::id())->select('id', 'name', 'email')->with('frindes')->get();
+        try {
+            $AllInfo = User::where('id', '=', Auth::id())->select('id', 'name')->with('frindes')->get();
 
-        $funcsCalcDate = new DateConverter;
+            $funcsCalcDate = new DateConverter;
 
-        // Calc age friend
+            // Calc age friend
 
-        foreach ($AllInfo[0]->frindes as $date) {
-            if ('hj' == $date->type_date) {
-                $dateHjFriend = $funcsCalcDate->age($date->age, 'hj');
-                $dateGrFriend = $funcsCalcDate->age($funcsCalcDate::HijriToGregorian($date->age), 'gr');
+            foreach ($AllInfo[0]->frindes as $date) {
+                if ('hj' == $date->type_date) {
+                    $dateHjFriend = $funcsCalcDate->age($date->age, 'hj');
+                    $dateGrFriend = $funcsCalcDate->age($funcsCalcDate::HijriToGregorian($date->age), 'gr');
 
-            } else {
-                $dateGrFriend = $funcsCalcDate->age($date->age, 'gr');
-                $dateHjFriend = $funcsCalcDate->age($funcsCalcDate::GregorianToHijri($date->age), 'hj');
+                } else {
+                    $dateGrFriend = $funcsCalcDate->age($date->age, 'gr');
+                    $dateHjFriend = $funcsCalcDate->age($funcsCalcDate::GregorianToHijri($date->age), 'hj');
+                }
+                $date->age = ['hj' => $dateHjFriend, 'gr' => $dateGrFriend];
+
             }
-            $date->age = ['hj' => $dateHjFriend, 'gr' => $dateGrFriend];
+
+            return response()->json(['alert' => true, 'UserAndFriends' => $AllInfo]);
+        } catch (\Throwable$th) {
+            return response()->json(['alert' => false, 'error' => $th->getMessage()], 500);
 
         }
-
-        return response()->json(['alert' => true, 'UserAndFriends' => $AllInfo]);
 
     }
     public function addFriend(FriendAddRequest $request)
