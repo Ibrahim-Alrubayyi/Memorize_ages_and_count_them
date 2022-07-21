@@ -18,7 +18,9 @@ export const REST_AGE = "REST_AGE";
 export const HJ_ERORR = "HJ_ERORR";
 export const GR_ERORR = "GR_ERORR";
 export const FORM_ERORR = "FORM_ERORR";
-
-//
+export const REST_STATE_ERORR_FORM = "REST_STATE_ERORR_FORM";
+//LODING
 export const LODING = "LODING";
 export const NOT_LODING = "NOT_LODING";
+//frindes
+export const GET_ALL_FRINDES = "GET_ALL_FRINDES";

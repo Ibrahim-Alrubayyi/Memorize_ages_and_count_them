@@ -22,13 +22,14 @@ export const register = async (dispatch, user) => {
 
 export const login = async (dispatch, user) => {
   const loginUser = await postLogin(user);
+
   if (loginUser.status === 200) {
     return dispatch({
       type: LOGIN,
     });
   } else {
     let arrErr = [];
-    for (let key in loginUser.zresponse.data.errors) {
+    for (let key in loginUser.response.data.errors) {
       arrErr.push(loginUser.response.data.errors[key]);
     }
     return dispatch({

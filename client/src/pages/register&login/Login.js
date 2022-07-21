@@ -9,6 +9,7 @@ import { useEffect } from "react";
 import { isLoading } from "../../redux/Actions/isLoading";
 import { LODING, NOT_LODING } from "../../redux/Actions/types";
 import AlertsErrors from "../../components/AlertsErrors";
+import { restErForm } from "../../redux/Actions/restErorrs";
 
 function Login() {
   const dispatch = useDispatch();
@@ -18,12 +19,13 @@ function Login() {
   const errorsValidtion = useSelector((state) => state.errors.input.form);
 
   const handleLogin = async () => {
+    restErForm(dispatch);
     isLoading(dispatch, LODING);
     await login(dispatch, infoUser.user);
     isLoading(dispatch, NOT_LODING);
-    if (errorsValidtion.length === 0) {
-      navigate("/profile");
-    }
+    console.log(errorsValidtion);
+
+    navigate("/profile");
   };
 
   const isLoadingOrNot = () => {

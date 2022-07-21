@@ -1,10 +1,16 @@
-import { FORM_ERORR, GR_ERORR, HJ_ERORR } from "../Actions/types";
+import {
+  FORM_ERORR,
+  GR_ERORR,
+  HJ_ERORR,
+  REST_STATE_ERORR_FORM,
+} from "../Actions/types";
 
 const initailState = {
   input: {
     hj: [],
     gr: [],
     form: [],
+    stateErorrForm: false,
   },
 };
 const ErorrsReducer = (state = initailState, action) => {
@@ -29,6 +35,16 @@ const ErorrsReducer = (state = initailState, action) => {
         input: {
           ...state.input,
           form: action.er,
+          stateErorrForm: true,
+        },
+      };
+    case REST_STATE_ERORR_FORM:
+      return {
+        ...state,
+        input: {
+          ...state.input,
+          form: [],
+          stateErorrForm: false,
         },
       };
     default:
