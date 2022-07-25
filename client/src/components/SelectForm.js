@@ -8,16 +8,16 @@ import createArayOfNumberToDate from "../helpers/createArayOfNumberToDate";
 import HijriYear from "../helpers/HijriYear";
 const SelectForm = ({ numDate, nameDate, nameSelect, typeDate }) => {
   const dispatch = useDispatch();
-  const [years, setYears] = useState([]);
-
   const GregorianYear = new Date().getFullYear();
-  const currentYear = typeDate === "gr" ? GregorianYear : HijriYear;
 
+  const [years, setYears] = useState([]);
+  const currentYear = typeDate === "gr" ? GregorianYear : HijriYear;
+  // console.log(years[0]);
   useEffect(() => {
     if (nameDate === "سنه") {
       setYears(range(currentYear, currentYear - 100, -1));
     }
-  }, []);
+  }, [typeDate]);
 
   //set values date in store
   const changeStateDate = (e) => {
@@ -39,13 +39,13 @@ const SelectForm = ({ numDate, nameDate, nameSelect, typeDate }) => {
       >
         {nameDate === "سنه"
           ? years.map((el, ind) => (
-              <option key={ind} value={el}>
+              <option key={el + 1000} value={el}>
                 {nameDate} {el}
               </option>
             ))
           : createArayOfNumberToDate(numDate).map((el, ind) => {
               return (
-                <option key={ind} value={el}>
+                <option key={el + 1000} value={el}>
                   {nameDate} {el}
                 </option>
               );

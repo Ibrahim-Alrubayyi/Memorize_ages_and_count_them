@@ -28,7 +28,7 @@ class FriendEditRequest extends FormRequest
             'age'       => 'required|date',
             'type_date' => 'required|alpha',
             'id'        => 'required|numeric',
-            'user_id'   => 'required|numeric',
+            // 'user_id'   => 'required|numeric',
         ];
     }
     public function messages()

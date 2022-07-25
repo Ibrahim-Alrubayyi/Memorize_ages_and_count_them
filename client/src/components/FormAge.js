@@ -29,22 +29,21 @@ const FormAge = ({ typeDate, nameForm }) => {
     <Fragment>
       <h1 className="color-white"> عمرك {nameForm}</h1>
       <p>سوف يتم حساب عمرك الهجري و ميلادي</p>
-      <Form action="" method="get">
-        <SelectForm nameDate="سنه" nameSelect="year" typeDate={typeDate} />
-        <SelectForm
-          numDate={12}
-          nameDate="شهر"
-          nameSelect="month"
-          typeDate={typeDate}
-        />
-        <SelectForm
-          numDate={31}
-          nameDate="يوم"
-          nameSelect="day"
-          typeDate={typeDate}
-        />
-        <Button onClick={() => calcAgeAndRediarct()}>احسب</Button>
-      </Form>
+
+      <SelectForm nameDate="سنه" nameSelect="year" typeDate={typeDate} />
+      <SelectForm
+        numDate={12}
+        nameDate="شهر"
+        nameSelect="month"
+        typeDate={typeDate}
+      />
+      <SelectForm
+        numDate={31}
+        nameDate="يوم"
+        nameSelect="day"
+        typeDate={typeDate}
+      />
+      <Button onClick={() => calcAgeAndRediarct()}>احسب</Button>
     </Fragment>
   );
 };

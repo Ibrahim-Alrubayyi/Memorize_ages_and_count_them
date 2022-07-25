@@ -12,21 +12,21 @@ import "../styles/header.css";
 const Header = () => {
   const navigate = useNavigate();
   const isLogin = useSelector((st) => st.user.isLogin);
-
+  console.log(isLogin);
   const handleNavigateToHome = () => navigate("/");
   const handleLinks = () => {
-    if (isLogin) {
+    if (isLogin == "true") {
       return (
         <>
           <Nav.Link onClick={() => navigate("/login")} className="color-black ">
             <Image src={userImg} rounded={true} width={50} />
           </Nav.Link>
-          <Nav.Link onClick={handleNavigateToHome} className="color-black  m-3">
+          <Nav.Link onClick={handleNavigateToHome} className="color-black m-3">
             الرئيسية
           </Nav.Link>
           <Nav.Link
-            onClick={() => navigate("/frinds")}
-            className="color-black   m-3   "
+            onClick={() => navigate("/profile")}
+            className="color-black m-3"
           >
             اصدقاء
           </Nav.Link>
@@ -35,7 +35,7 @@ const Header = () => {
     } else {
       return (
         <>
-          <Nav.Link onClick={handleNavigateToHome} className="color-black  m-3">
+          <Nav.Link onClick={handleNavigateToHome} className="color-black m-3">
             الرئيسية
           </Nav.Link>
           <Nav.Link

@@ -1,5 +1,14 @@
 import postAge from "../../adapters/postAge";
-import { AGE, DAY, GR_ERORR, HJ_ERORR, MONTH, REST_AGE, YEAR } from "./types";
+import {
+  AGE,
+  DAY,
+  GR_ERORR,
+  HJ_ERORR,
+  MONTH,
+  REST_AGE,
+  SET_SHOW,
+  YEAR,
+} from "./types";
 
 export const calcAge = async (dispatch, age, typeDate) => {
   const calcWithAPI = await postAge(age, typeDate);
@@ -58,5 +67,12 @@ export const dayAction = async (dispatch, day, dateType) => {
     type: DAY,
     day: day,
     dateType: dateType,
+  });
+};
+
+export const showHjOrGr = async (dispatch, value) => {
+  return dispatch({
+    type: SET_SHOW,
+    show: value,
   });
 };

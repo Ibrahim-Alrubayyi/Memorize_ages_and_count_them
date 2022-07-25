@@ -1,7 +1,7 @@
 //REDUCER
 
 import HijriYear from "../../helpers/HijriYear";
-import { AGE, DAY, MONTH, REST_AGE, YEAR } from "../Actions/types";
+import { AGE, DAY, MONTH, REST_AGE, SET_SHOW, YEAR } from "../Actions/types";
 
 const initailState = {
   gr: { year: new Date().getFullYear(), month: "1", day: "1" },
@@ -14,6 +14,7 @@ const initailState = {
     ageHj: [{ day: "" }, { month: "" }, { year: "" }],
     typeDate: "",
   },
+  show: "hj",
 };
 
 const AgeReducer = (state = initailState, action) => {
@@ -30,6 +31,10 @@ const AgeReducer = (state = initailState, action) => {
           typeDate: action.typeDate,
         },
       };
+    case SET_SHOW:
+      return action.show === "hj"
+        ? { ...state, show: "hj" }
+        : { ...state, show: "gr" };
     case REST_AGE:
       return {
         ...state,

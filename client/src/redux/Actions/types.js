@@ -13,7 +13,7 @@ export const YEAR = "YEAR";
 export const MONTH = "MONTH";
 export const DAY = "DAY";
 export const REST_AGE = "REST_AGE";
-
+export const SET_SHOW = "SET_SHOW";
 // TYPES FOR ERPRRS REDUCER
 export const HJ_ERORR = "HJ_ERORR";
 export const GR_ERORR = "GR_ERORR";

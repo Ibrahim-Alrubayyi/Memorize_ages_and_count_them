@@ -1,0 +1,15 @@
+@media (min-width: 768px) {
+  .me-md {
+    width: 350px;
+  }
+}
+@media (min-width: 992px) {
+  .me-md {
+    width: 450px;
+  }
+}
+@media (min-width: 1028px) {
+  .me-md {
+    width: 375px;
+  }
+}

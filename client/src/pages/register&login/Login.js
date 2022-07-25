@@ -23,7 +23,6 @@ function Login() {
     isLoading(dispatch, LODING);
     await login(dispatch, infoUser.user);
     isLoading(dispatch, NOT_LODING);
-    console.log(errorsValidtion);
 
     navigate("/profile");
   };

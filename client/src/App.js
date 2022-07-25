@@ -11,6 +11,7 @@ import { ThemeProvider } from "react-bootstrap";
 import { Routes, Route, Navigate, BrowserRouter } from "react-router-dom";
 import Register from "./pages/register&login/Register";
 import Login from "./pages/register&login/Login";
+import EditeFrinde from "./pages/profile/EditeFrinde";
 function App() {
   return (
     <div className="App">
@@ -28,7 +29,7 @@ function App() {
             <Route path="/profile/edit" element={<Index />} />
 
             <Route path="/friend" element={<Index />} />
-            <Route path="/friend/edit" element={<Index />} />
+            <Route path="/friend/edit" element={<EditeFrinde />} />
             <Route path="/friend/add" element={<Index />} />
 
             <Route path={"*"} element={<Navigate to="/" />} />
