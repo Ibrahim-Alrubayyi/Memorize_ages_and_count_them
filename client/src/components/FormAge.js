@@ -43,7 +43,12 @@ const FormAge = ({ typeDate, nameForm }) => {
         nameSelect="day"
         typeDate={typeDate}
       />
-      <Button onClick={() => calcAgeAndRediarct()}>احسب</Button>
+      <Button
+        className="bg-white color-black border-dark border-3"
+        onClick={() => calcAgeAndRediarct()}
+      >
+        احسب
+      </Button>
     </Fragment>
   );
 };

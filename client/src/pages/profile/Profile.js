@@ -15,7 +15,6 @@ const Profile = () => {
   useEffect(() => {
     getAllFrindesAction(dispatch);
     //if login is erorr
-    console.log(frindes);
 
     if (errorsValidtion) {
       navigate("/login");
@@ -25,7 +24,7 @@ const Profile = () => {
     <>
       <Container>
         <div className="mb-3">
-          <Button>اضافة شخص جديد</Button>
+          <Button>اضافة صديق جديد</Button>
         </div>
         <ShowAllFrindes frindes={frindes} />
       </Container>

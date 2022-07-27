@@ -1,4 +1,3 @@
-import Axios from "axios";
 import formatAge from "../helpers/formatAgeDate";
 import { instance } from "./axios";
 const postAge = async (age, type_data) => {
@@ -23,8 +22,8 @@ const postAge = async (age, type_data) => {
   //   .catch((rej) => {
   //     return rej.response;
   //   });
-  instance
-    .post(url, ageAfterFromatDate)
+  return instance
+    .post(url, { age: ageAfterFromatDate, type_date: type_data })
     .then((res) => res)
     .catch((rej) => rej);
 };

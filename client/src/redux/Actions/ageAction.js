@@ -12,7 +12,7 @@ import {
 
 export const calcAge = async (dispatch, age, typeDate) => {
   const calcWithAPI = await postAge(age, typeDate);
-
+  console.log(calcWithAPI);
   if (calcWithAPI.status === 200) {
     // to AgeReducser
     return dispatch({

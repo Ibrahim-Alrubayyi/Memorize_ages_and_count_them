@@ -28,7 +28,6 @@ function App() {
             <Route path="/profile" element={<Profile />} />
             <Route path="/profile/edit" element={<Index />} />
 
-            <Route path="/friend" element={<Index />} />
             <Route path="/friend/edit" element={<EditeFrinde />} />
             <Route path="/friend/add" element={<Index />} />
 
