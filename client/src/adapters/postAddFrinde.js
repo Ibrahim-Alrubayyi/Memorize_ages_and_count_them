@@ -1,12 +1,11 @@
 import { instance } from "./axios";
 
-export const postEditeFrinde = (user) => {
-  const url = "/api/friend/edit";
+export const postAddFrinde = (user) => {
+  const url = "/api/friend/add";
   const infoFrinde = {
     name: user.name,
     age: user.age,
     type_date: user.type_date,
-    id: user.id,
   };
   return instance
     .post(url, infoFrinde)

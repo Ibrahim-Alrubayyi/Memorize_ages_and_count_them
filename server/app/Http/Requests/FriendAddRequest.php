@@ -24,7 +24,7 @@ class FriendAddRequest extends FormRequest
     public function rules()
     {
         return [
-            'name'      => 'required|min:3|max:60|alpha_num',
+            'name'      => 'required|min:1|max:60|alpha_num',
             'age'       => 'required|date',
             'type_date' => 'required|alpha',
 

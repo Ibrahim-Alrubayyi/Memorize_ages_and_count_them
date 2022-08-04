@@ -1,10 +1,12 @@
 import postLogin from "../../adapters/postLogin";
+import { postLogout } from "../../adapters/postLogout";
 import postRegister from "../../adapters/postRegister";
-import { FORM_ERORR, LOGIN, REGISTER } from "./types";
+import { FORM_ERORR, IS_LOGIN, LOGIN, LOGOUT, REGISTER } from "./types";
 
 export const register = async (dispatch, user) => {
   const registerUser = await postRegister(user);
-  if (registerUser.status === 200) {
+  console.log(registerUser);
+  if (registerUser !== undefined && registerUser.status === 200) {
     return dispatch({
       type: REGISTER,
     });
@@ -37,4 +39,24 @@ export const login = async (dispatch, user) => {
       er: arrErr,
     });
   }
+};
+
+export const logout = async (dispatch) => {
+  const logoutUser = await postLogout();
+
+  if (logoutUser.status === 200) {
+    return dispatch({
+      type: LOGOUT,
+    });
+  }
+};
+export const unauth = (dispatch) => {
+  return dispatch({
+    type: LOGOUT,
+  });
+};
+export const loginDone = (dispatch) => {
+  return dispatch({
+    type: IS_LOGIN,
+  });
 };

@@ -1,19 +1,17 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
 import Input from "../../components/Input";
-import { useSelector, useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
 import FormAge from "../../components/FormAge";
+import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { Button, Container } from "react-bootstrap";
-const EditeFrinde = () => {
-  const [show, setShow] = useState(
-    useSelector((state) => state.frindes.inputs.type_date)
-  );
+const AddFrinde = () => {
   const user = useSelector((state) => state.user.isLogin);
   const navigate = useNavigate();
 
+  const [show, setShow] = useState("hj");
   return (
-    <Container>
-      <Input placeholder={"الاسم"} name="frindeName" frinde={true} />
+    <Container className=" bg-gray-300">
+      <Input placeholder={"الاسم"} name="frindeName" />
       <div className="d-flex justify-content-around m-3">
         <Button
           className=" bg-dark border-3 border-white"
@@ -29,12 +27,12 @@ const EditeFrinde = () => {
         </Button>
       </div>
       {show === "hj" ? (
-        <FormAge typeDate={"hj"} nameForm="هجري" addFrinde={true} />
+        <FormAge typeDate={"hj"} nameForm="هجري" addFrinde={"add"} />
       ) : (
-        <FormAge typeDate={"gr"} nameForm="ميلادي" addFrinde={true} />
+        <FormAge typeDate={"gr"} nameForm="ميلادي" addFrinde={"add"} />
       )}
     </Container>
   );
 };
 
-export default EditeFrinde;
+export default AddFrinde;

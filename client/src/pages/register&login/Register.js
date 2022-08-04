@@ -9,20 +9,21 @@ import { useEffect } from "react";
 import { isLoading } from "../../redux/Actions/isLoading";
 import { LODING, NOT_LODING } from "../../redux/Actions/types";
 import AlertsErrors from "../../components/AlertsErrors";
+import { restErForm } from "../../redux/Actions/restErorrs";
 
 function Register() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const infoUser = useSelector((st) => st.user);
+  const infoUser = useSelector((st) => st.user.user);
   const _isLoading = useSelector((state) => state.isLoading.isLoading);
   const errorsValidtion = useSelector((state) => state.errors.input.form);
 
   const handleRgister = async () => {
+    restErForm(dispatch);
     isLoading(dispatch, LODING);
-    await register(dispatch, infoUser.user);
+    await register(dispatch, infoUser);
     isLoading(dispatch, NOT_LODING);
     if (errorsValidtion.length) {
-      console.log(errorsValidtion.length);
       navigate("/profile");
     }
   };

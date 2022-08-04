@@ -6,11 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\LoginRequest;
 use App\Http\Requests\RegisterRequest;
 use App\Models\User;
-use Illuminate\Http\Client\Request;
+// use Illuminate\Http\Client\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Cookie as FacadesCookie;
 use Illuminate\Support\Facades\Hash;
-use Symfony\Component\HttpFoundation\Cookie;
 
 class AuthController extends Controller
 {
@@ -40,13 +38,17 @@ class AuthController extends Controller
         }
 
     }
-    public function logoutUser(Request $request)
+    public function logoutUser()
     {
         try {
-            $cookie = FacadesCookie::forget('jwt');
+
+            // Cookie::forget('jwt');
+            // $cookie = FacadesCookie::queue(FacadesCookie::forget('jwt'));
+            $cookie = cookie('jwt', null, 0, null, "127.0.0.1", true, true, false, 'none');
+
             return response()->json([
                 'alert' => true,
-            ], 200);
+            ], 200)->withCookie($cookie);
         } catch (\Throwable$th) {
             return response()->json(['alert' => false, 'error' => $th->getMessage()], 500);
 

@@ -31,7 +31,7 @@ class FriendsController extends Controller
                     $dateGrFriend = $funcsCalcDate->age($date->age, 'gr');
                     $dateHjFriend = $funcsCalcDate->age($funcsCalcDate::GregorianToHijri($date->age), 'hj');
                 }
-                $date->age = ['hj' => $dateHjFriend, 'gr' => $dateGrFriend];
+                $date->age = ['hj' => $dateHjFriend, 'gr' => $dateGrFriend, 'curentDate' => $date->age];
 
             }
 

@@ -1,15 +1,13 @@
 //REDUCER
-
-import { EMAIL, LOGIN, NAME, PASSWORD, REGISTER } from "../Actions/types";
-function checkValueIsllogin(state) {
-  if (!localStorage.getItem("isLogin")) {
-    localStorage.setItem("isLogin", false);
-  }
-  if (state === "isLogin") {
-    localStorage.setItem("isLogin", true);
-  }
-  return localStorage.getItem("isLogin");
-}
+import {
+  EMAIL,
+  IS_LOGIN,
+  LOGIN,
+  LOGOUT,
+  NAME,
+  PASSWORD,
+  REGISTER,
+} from "../Actions/types";
 
 const initailState = {
   user: {
@@ -18,7 +16,7 @@ const initailState = {
     password: "",
   },
 
-  isLogin: checkValueIsllogin(),
+  isLogin: false,
 };
 
 const UserReducer = (state = initailState, action) => {
@@ -26,13 +24,24 @@ const UserReducer = (state = initailState, action) => {
     case LOGIN:
       return {
         ...state,
-        isLogin: checkValueIsllogin("isLogin"),
+        isLogin: true,
+      };
+    case IS_LOGIN:
+      return {
+        ...state,
+        isLogin: true,
       };
     case REGISTER:
       return {
         ...state,
-        isLogin: checkValueIsllogin("isLogin"),
+        isLogin: true,
       };
+    case LOGOUT:
+      return {
+        ...state,
+        isLogin: false,
+      };
+
     case NAME:
       return {
         ...state,

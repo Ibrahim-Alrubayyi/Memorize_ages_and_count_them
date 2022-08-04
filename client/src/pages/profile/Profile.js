@@ -10,6 +10,7 @@ const Profile = () => {
     (state) => state.errors.input.stateErorrForm
   );
   const frindes = useSelector((state) => state.frindes.frindes);
+  const user = useSelector((state) => state.user.isLogin);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   useEffect(() => {
@@ -19,12 +20,14 @@ const Profile = () => {
     if (errorsValidtion) {
       navigate("/login");
     }
-  }, []);
+  }, [user]);
   return (
     <>
       <Container>
         <div className="mb-3">
-          <Button>اضافة صديق جديد</Button>
+          <Button onClick={() => navigate("/friend/add")}>
+            اضافة صديق جديد
+          </Button>
         </div>
         <ShowAllFrindes frindes={frindes} />
       </Container>

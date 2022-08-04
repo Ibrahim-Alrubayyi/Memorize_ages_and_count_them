@@ -1,6 +1,6 @@
 import React from "react";
 //redux
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 //imgs
 import userImg from "../imgs/user-img.jpg";
 // components
@@ -9,13 +9,21 @@ import { useNavigate } from "react-router-dom";
 
 //css
 import "../styles/header.css";
+import { logout } from "../redux/Actions/userAction";
 const Header = () => {
   const navigate = useNavigate();
   const isLogin = useSelector((st) => st.user.isLogin);
-  console.log(isLogin);
+
+  const hansleLogut = async () => {
+    await logout(dispatch);
+    navigate("/");
+  };
+
   const handleNavigateToHome = () => navigate("/");
+  const dispatch = useDispatch();
+
   const handleLinks = () => {
-    if (isLogin == "true") {
+    if (isLogin) {
       return (
         <>
           <Nav.Link onClick={() => navigate("/login")} className="color-black ">
@@ -29,6 +37,12 @@ const Header = () => {
             className="color-black m-3"
           >
             اصدقاء
+          </Nav.Link>
+          <Nav.Link
+            className=" fw-bold text-light m-3 bg-danger rounded"
+            onClick={() => hansleLogut()}
+          >
+            تسجيل خروج
           </Nav.Link>
         </>
       );

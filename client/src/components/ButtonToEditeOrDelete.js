@@ -1,24 +1,30 @@
 import React, { Fragment } from "react";
 import { Button } from "react-bootstrap";
-import { deleteFrinde, editeFrinde } from "../redux/Actions/frindesAction";
+import { curentUser, deleteFrinde } from "../redux/Actions/frindesAction";
 import { useDispatch } from "react-redux";
 import { isLoading } from "../redux/Actions/isLoading";
 import { LODING, NOT_LODING } from "../redux/Actions/types";
 import { useNavigate } from "react-router-dom";
 const ButtonToEditeOrDelete = (props) => {
-  //   console.log(props);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const handleRequest = async () => {
     if (props.value === "حذف") {
       isLoading(dispatch, LODING);
-      console.log(props.infoUser);
       await deleteFrinde(dispatch, props.infoUser);
       isLoading(dispatch, NOT_LODING);
     } else {
+      let frinde = {
+        name: props.infoUser.name,
+        id: props.infoUser.id,
+        type_date: props.infoUser.type_date,
+        age: props.infoUser.age.curentDate,
+      };
+      curentUser(dispatch, frinde);
       navigate("/friend/edit");
     }
   };
+
   return (
     <Fragment>
       <Button className={props.class} onClick={() => handleRequest()}>
