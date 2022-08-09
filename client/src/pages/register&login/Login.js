@@ -2,14 +2,14 @@ import { Container, Spinner } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Input from "../../components/Input";
-import { login } from "../../redux/Actions/userAction";
+import { login } from "../../redux-store/Actions/userAction";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
-import { isLoading } from "../../redux/Actions/isLoading";
-import { LODING, NOT_LODING } from "../../redux/Actions/types";
+import { isLoading } from "../../redux-store/Actions/isLoading";
+import { LODING, NOT_LODING } from "../../redux-store/Actions/types";
 import AlertsErrors from "../../components/AlertsErrors";
-import { restErForm } from "../../redux/Actions/restErorrs";
+import { restErForm } from "../../redux-store/Actions/restErorrs";
 
 function Login() {
   const dispatch = useDispatch();

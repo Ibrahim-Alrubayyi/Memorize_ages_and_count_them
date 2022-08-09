@@ -1,11 +1,22 @@
+import { getProfile } from "../../adapters/getProfile";
+import { postEditeProfile } from "../../adapters/postEditeProfile";
 import postLogin from "../../adapters/postLogin";
 import { postLogout } from "../../adapters/postLogout";
 import postRegister from "../../adapters/postRegister";
-import { FORM_ERORR, IS_LOGIN, LOGIN, LOGOUT, REGISTER } from "./types";
+import {
+  EDITE_EMAIL,
+  EDITE_NAME,
+  EDITE_PASSWORD,
+  FORM_ERORR,
+  INFO_USER_FROM_USER,
+  IS_LOGIN,
+  LOGIN,
+  LOGOUT,
+  REGISTER,
+} from "./types";
 
 export const register = async (dispatch, user) => {
   const registerUser = await postRegister(user);
-  console.log(registerUser);
   if (registerUser !== undefined && registerUser.status === 200) {
     return dispatch({
       type: REGISTER,
@@ -58,5 +69,46 @@ export const unauth = (dispatch) => {
 export const loginDone = (dispatch) => {
   return dispatch({
     type: IS_LOGIN,
+  });
+};
+
+export const getInfoProfile = async (dispatch) => {
+  const apiProfile = await getProfile();
+  if (apiProfile.status === 200) {
+    return dispatch({
+      type: INFO_USER_FROM_USER,
+      user: apiProfile.data.user,
+    });
+  }
+};
+
+export const postInfoToEdite = async (dispatch, user) => {
+  const apiProfile = await postEditeProfile(user);
+  if (apiProfile.status === 200) {
+    return dispatch({
+      type: INFO_USER_FROM_USER,
+      user: apiProfile.data.user,
+    });
+  }
+};
+
+export const inputNameEditeUser = (dispatch, name) => {
+  return dispatch({
+    type: EDITE_NAME,
+    name,
+  });
+};
+
+export const inputEmailEditeUser = (dispatch, email) => {
+  return dispatch({
+    type: EDITE_EMAIL,
+    email,
+  });
+};
+
+export const inputPasswordEditeUser = (dispatch, password) => {
+  return dispatch({
+    type: EDITE_PASSWORD,
+    password,
   });
 };

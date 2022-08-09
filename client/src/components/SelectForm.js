@@ -1,12 +1,16 @@
 import React, { Fragment, useEffect, useState } from "react";
 import Form from "react-bootstrap/Form";
-import { dayAction, monthAction, yearAction } from "../redux/Actions/ageAction";
+import {
+  dayAction,
+  monthAction,
+  yearAction,
+} from "../redux-store/Actions/ageAction";
 import { useDispatch, useSelector } from "react-redux";
 //custem functions
 import range from "../helpers/rangeBetweenYears";
 import createArayOfNumberToDate from "../helpers/createArayOfNumberToDate";
 import HijriYear from "../helpers/HijriYear";
-import { changeDateFrinde } from "../redux/Actions/frindesAction";
+import { changeDateFrinde } from "../redux-store/Actions/frindesAction";
 const SelectForm = ({ numDate, nameDate, nameSelect, typeDate, addFrinde }) => {
   const dispatch = useDispatch();
   const GregorianYear = new Date().getFullYear();

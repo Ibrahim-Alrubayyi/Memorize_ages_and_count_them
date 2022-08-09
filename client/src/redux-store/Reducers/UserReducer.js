@@ -1,6 +1,10 @@
 //REDUCER
 import {
+  EDITE_EMAIL,
+  EDITE_NAME,
+  EDITE_PASSWORD,
   EMAIL,
+  INFO_USER_FROM_USER,
   IS_LOGIN,
   LOGIN,
   LOGOUT,
@@ -15,7 +19,11 @@ const initailState = {
     email: "",
     password: "",
   },
-
+  inputs: {
+    name: "",
+    email: "",
+    password: "",
+  },
   isLogin: false,
 };
 
@@ -41,7 +49,21 @@ const UserReducer = (state = initailState, action) => {
         ...state,
         isLogin: false,
       };
+    case INFO_USER_FROM_USER:
+      return {
+        ...state,
+        user: {
+          ...state.user,
+          name: action.user.name,
+          email: action.user.email,
+        },
 
+        inputs: {
+          ...state.inputs,
+          name: action.user.name,
+          email: action.user.email,
+        },
+      };
     case NAME:
       return {
         ...state,
@@ -57,6 +79,23 @@ const UserReducer = (state = initailState, action) => {
         ...state,
         user: { ...state.user, password: action.input },
       };
+
+    case EDITE_EMAIL:
+      return {
+        ...state,
+        inputs: { ...state.inputs, email: action.email },
+      };
+    case EDITE_NAME:
+      return {
+        ...state,
+        inputs: { ...state.inputs, name: action.name },
+      };
+    case EDITE_PASSWORD:
+      return {
+        ...state,
+        inputs: { ...state.inputs, password: action.passwword },
+      };
+
     default:
       return state;
   }

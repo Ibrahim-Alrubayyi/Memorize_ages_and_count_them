@@ -10,7 +10,7 @@ import Spinner from "react-bootstrap/Spinner";
 //css
 import "../../styles/App.css";
 import "../../styles/index.css";
-import { showHjOrGr } from "../../redux/Actions/ageAction";
+import { showHjOrGr } from "../../redux-store/Actions/ageAction";
 const Index = () => {
   const show = useSelector((st) => st.age.show);
   const dispatch = useDispatch();

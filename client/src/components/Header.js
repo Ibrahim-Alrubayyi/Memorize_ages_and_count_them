@@ -1,5 +1,5 @@
 import React from "react";
-//redux
+//redux-store
 import { useSelector, useDispatch } from "react-redux";
 //imgs
 import userImg from "../imgs/user-img.jpg";
@@ -9,7 +9,7 @@ import { useNavigate } from "react-router-dom";
 
 //css
 import "../styles/header.css";
-import { logout } from "../redux/Actions/userAction";
+import { logout } from "../redux-store/Actions/userAction";
 const Header = () => {
   const navigate = useNavigate();
   const isLogin = useSelector((st) => st.user.isLogin);
@@ -26,7 +26,10 @@ const Header = () => {
     if (isLogin) {
       return (
         <>
-          <Nav.Link onClick={() => navigate("/login")} className="color-black ">
+          <Nav.Link
+            onClick={() => navigate("/profile/edit")}
+            className="color-black "
+          >
             <Image src={userImg} rounded={true} width={50} />
           </Nav.Link>
           <Nav.Link onClick={handleNavigateToHome} className="color-black m-3">
@@ -70,12 +73,18 @@ const Header = () => {
   };
   return (
     <>
-      <Navbar>
+      <Navbar expand="lg">
         <Container>
-          <Navbar.Brand onClick={handleNavigateToHome} className="color-black ">
+          <Navbar.Brand onClick={handleNavigateToHome} className="color-black">
             لا تنسى العمر
           </Navbar.Brand>
-          <Nav className="me-auto text-center">{handleLinks()}</Nav>
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+
+          <Navbar.Collapse id="basic-navbar-nav">
+            <Nav className="me-auto text-center navbar-nav ">
+              {handleLinks()}
+            </Nav>
+          </Navbar.Collapse>
         </Container>
       </Navbar>
     </>

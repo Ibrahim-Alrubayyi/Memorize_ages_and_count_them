@@ -3,7 +3,7 @@ import { Button, Container } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import ShowAllFrindes from "../../components/ShowAllFrindes";
-import { getAllFrindesAction } from "../../redux/Actions/frindesAction";
+import { getAllFrindesAction } from "../../redux-store/Actions/frindesAction";
 
 const Profile = () => {
   const errorsValidtion = useSelector(

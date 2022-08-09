@@ -1,12 +1,16 @@
 import React, { Fragment } from "react";
 import { Button } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
+
 import SelectForm from "../components/SelectForm";
-import { calcAge } from "../redux/Actions/ageAction";
+import { calcAge } from "../redux-store/Actions/ageAction";
 import { useNavigate } from "react-router-dom";
-import { isLoading } from "../redux/Actions/isLoading";
-import { LODING, NOT_LODING } from "../redux/Actions/types";
-import { editeFrinde, addFrindeFromAPI } from "../redux/Actions/frindesAction";
+import { isLoading } from "../redux-store/Actions/isLoading";
+import { LODING, NOT_LODING } from "../redux-store/Actions/types";
+import {
+  editeFrinde,
+  addFrindeFromAPI,
+} from "../redux-store/Actions/frindesAction";
 
 const FormAge = ({ typeDate, nameForm, addFrinde }) => {
   const dispatch = useDispatch();

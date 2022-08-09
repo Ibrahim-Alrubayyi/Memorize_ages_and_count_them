@@ -1,9 +1,9 @@
 import React, { Fragment } from "react";
 import { Button } from "react-bootstrap";
-import { curentUser, deleteFrinde } from "../redux/Actions/frindesAction";
+import { curentUser, deleteFrinde } from "../redux-store/Actions/frindesAction";
 import { useDispatch } from "react-redux";
-import { isLoading } from "../redux/Actions/isLoading";
-import { LODING, NOT_LODING } from "../redux/Actions/types";
+import { isLoading } from "../redux-store/Actions/isLoading";
+import { LODING, NOT_LODING } from "../redux-store/Actions/types";
 import { useNavigate } from "react-router-dom";
 const ButtonToEditeOrDelete = (props) => {
   const dispatch = useDispatch();
