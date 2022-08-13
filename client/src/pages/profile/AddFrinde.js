@@ -10,19 +10,14 @@ const AddFrinde = () => {
 
   const [show, setShow] = useState("hj");
   return (
-    <Container className=" bg-gray-300">
+    <Container className=" bg-gray-300 form-age-edite-add w-md-50">
+      <span className="text-light fs-4 pb-3">اضافة صديق جديد</span>
       <Input placeholder={"الاسم"} name="frindeName" />
       <div className="d-flex justify-content-around m-3">
-        <Button
-          className=" bg-dark border-3 border-white"
-          onClick={() => setShow("hj")}
-        >
+        <Button className=" bg-pink" onClick={() => setShow("hj")}>
           حساب بالهجري
         </Button>
-        <Button
-          className=" bg-light border-3 border-dark color-black"
-          onClick={() => setShow("gr")}
-        >
+        <Button className=" bg-pink" onClick={() => setShow("gr")}>
           حساب بالميلادي
         </Button>
       </div>

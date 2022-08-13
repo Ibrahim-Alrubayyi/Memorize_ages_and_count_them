@@ -25,7 +25,10 @@ const Profile = () => {
     <>
       <Container>
         <div className="mb-3">
-          <Button onClick={() => navigate("/friend/add")}>
+          <Button
+            onClick={() => navigate("/friend/add")}
+            className="sumbite-btn"
+          >
             اضافة صديق جديد
           </Button>
         </div>

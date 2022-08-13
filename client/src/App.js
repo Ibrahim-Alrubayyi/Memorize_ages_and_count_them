@@ -1,4 +1,5 @@
 import * as React from "react";
+import "../src/styles/App.css";
 //Pages
 import Index from "../src/pages/ageCalculator/Index";
 import UserAge from "./pages/ageCalculator/UserAge";

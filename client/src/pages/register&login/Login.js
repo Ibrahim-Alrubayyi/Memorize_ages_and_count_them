@@ -33,15 +33,17 @@ function Login() {
     } else {
       return (
         <>
+          <span className=" text-light fs-3 ">تسجيل دخول</span>{" "}
           <Input placeholder={"ايميل"} name={"email"} />
           <Input placeholder={"رمز سري"} name={"password"} />
           {errorsValidtion.length > 0 ? (
             <AlertsErrors errors={errorsValidtion} />
           ) : null}
-          <Form.Group className="mb-3">
-            <Form.Check type="checkbox" label="Check me out" />
-          </Form.Group>
-          <Button variant="primary" onClick={() => handleLogin()}>
+          <Button
+            variant="primary"
+            onClick={() => handleLogin()}
+            className="sumbite-btn"
+          >
             سجل
           </Button>
         </>

@@ -8,7 +8,6 @@ import { Navbar, Nav, Container, Image } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 
 //css
-import "../styles/header.css";
 import { logout } from "../redux-store/Actions/userAction";
 const Header = () => {
   const navigate = useNavigate();
@@ -28,16 +27,16 @@ const Header = () => {
         <>
           <Nav.Link
             onClick={() => navigate("/profile/edit")}
-            className="color-black "
+            className="text-light"
           >
             <Image src={userImg} rounded={true} width={50} />
           </Nav.Link>
-          <Nav.Link onClick={handleNavigateToHome} className="color-black m-3">
+          <Nav.Link onClick={handleNavigateToHome} className="text-light m-3">
             الرئيسية
           </Nav.Link>
           <Nav.Link
             onClick={() => navigate("/profile")}
-            className="color-black m-3"
+            className="text-light m-3"
           >
             اصدقاء
           </Nav.Link>
@@ -52,18 +51,18 @@ const Header = () => {
     } else {
       return (
         <>
-          <Nav.Link onClick={handleNavigateToHome} className="color-black m-3">
+          <Nav.Link onClick={handleNavigateToHome} className="text-light m-3">
             الرئيسية
           </Nav.Link>
           <Nav.Link
             onClick={() => navigate("/register")}
-            className="color-black  m-3 "
+            className="text-light  m-3 "
           >
             تسجيل
           </Nav.Link>
           <Nav.Link
             onClick={() => navigate("/login")}
-            className="color-black m-3"
+            className="text-light m-3"
           >
             تسجيل دخول
           </Nav.Link>
@@ -73,12 +72,19 @@ const Header = () => {
   };
   return (
     <>
-      <Navbar expand="lg">
+      <Navbar expand="lg" className="nav">
         <Container>
-          <Navbar.Brand onClick={handleNavigateToHome} className="color-black">
+          <Navbar.Brand
+            onClick={handleNavigateToHome}
+            className="text-light fw-bolder"
+          >
             لا تنسى العمر
           </Navbar.Brand>
-          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Toggle
+            aria-controls="basic-navbar-nav"
+            color="white"
+            className=" text-light"
+          />
 
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto text-center navbar-nav ">

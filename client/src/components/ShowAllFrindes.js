@@ -1,6 +1,6 @@
 import React from "react";
-import { Button, Col, Row } from "react-bootstrap";
-import "../styles/ShowAllFrindes.css";
+import { Col, Row } from "react-bootstrap";
+
 import ButtonToEditeOrDelete from "./ButtonToEditeOrDelete";
 const ShowAllFrindes = ({ frindes = [] }) => {
   const checkToFindFrindes = () => {
@@ -13,20 +13,21 @@ const ShowAllFrindes = ({ frindes = [] }) => {
                 sm={12}
                 md={6}
                 lg={4}
-                className={"bg-dark mb-3 rounded me-md-1 me-lg-1 me-md "}
+                className={"  mb-3 rounded me-md-1 me-lg-1 me-md blue-bg pt-2"}
                 key={ind}
               >
                 <ButtonToEditeOrDelete
-                  class="bg-danger"
+                  class="bg-danger mb-3"
                   value="حذف"
                   infoUser={el.id}
                 />
                 <ButtonToEditeOrDelete
-                  class="ms-3"
+                  class="ms-3 mb-3"
                   value="تعديل"
                   infoUser={el}
                 />
-                <div className="bg-light rounded text-center">
+
+                <div className="bg-dark rounded text-center text-light">
                   <h1> الاسم : {el.name}</h1>
                   <p>
                     العمر بالهجري : {el.age.hj[2].year} سنه /

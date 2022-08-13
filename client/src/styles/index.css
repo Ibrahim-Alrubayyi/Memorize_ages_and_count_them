@@ -1,8 +1,0 @@
-/*  --color-dark-blue: #5bccf6;
-  --color-yellow: #fcde67;
-  --color-black: #030e12; */
-@media (min-width: 768px) {
-  .w-md-50 {
-    width: 50%;
-  }
-}

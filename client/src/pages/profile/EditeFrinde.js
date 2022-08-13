@@ -12,19 +12,15 @@ const EditeFrinde = () => {
   const navigate = useNavigate();
 
   return (
-    <Container>
+    <Container className="form-age-edite-add w-md-50">
+      <span className="text-light fs-4 pb-3">تعديل صديق </span>
+
       <Input placeholder={"الاسم"} name="frindeName" frinde={true} />
       <div className="d-flex justify-content-around m-3">
-        <Button
-          className=" bg-dark border-3 border-white"
-          onClick={() => setShow("hj")}
-        >
+        <Button className="  bg-pink" onClick={() => setShow("hj")}>
           حساب بالهجري
         </Button>
-        <Button
-          className=" bg-light border-3 border-dark color-black"
-          onClick={() => setShow("gr")}
-        >
+        <Button className=" bg-pink" onClick={() => setShow("gr")}>
           حساب بالميلادي
         </Button>
       </div>

@@ -45,12 +45,12 @@ const FormAge = ({ typeDate, nameForm, addFrinde }) => {
   };
 
   return (
-    <Fragment>
-      <h1 className="color-white"> عمرك {nameForm}</h1>
+    <div className="">
+      <h1 className="text-light"> عمرك {nameForm}</h1>
       {addFrinde ? (
-        <p>سوف يتم حساب عمر صديقك الهجري وميلادي</p>
+        <p className="gray-color">سوف يتم حساب عمر صديقك الهجري وميلادي</p>
       ) : (
-        <p>سوف يتم حساب عمرك الهجري و ميلادي</p>
+        <p className="gray-color">سوف يتم حساب عمرك الهجري و ميلادي</p>
       )}
 
       <SelectForm
@@ -74,28 +74,19 @@ const FormAge = ({ typeDate, nameForm, addFrinde }) => {
         addFrinde={addFrinde}
       />
       {addFrinde === true ? (
-        <Button
-          className="bg-white color-black border-dark border-3"
-          onClick={() => handleRequestEdit()}
-        >
+        <Button className="sumbite-btn" onClick={() => handleRequestEdit()}>
           عدل بيانات صديقك
         </Button>
       ) : addFrinde === "add" ? (
-        <Button
-          className="bg-white color-black border-dark border-3"
-          onClick={() => handleRequestAdd()}
-        >
+        <Button className="sumbite-btn" onClick={() => handleRequestAdd()}>
           اضف صديق جديد
         </Button>
       ) : (
-        <Button
-          className="bg-white color-black border-dark border-3"
-          onClick={() => calcAgeAndRediarct()}
-        >
+        <Button className="sumbite-btn" onClick={() => calcAgeAndRediarct()}>
           احسب
         </Button>
       )}
-    </Fragment>
+    </div>
   );
 };
 

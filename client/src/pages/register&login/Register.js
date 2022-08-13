@@ -34,6 +34,7 @@ function Register() {
     } else {
       return (
         <>
+          <span className=" text-light fs-3 ">تسجيل </span>
           <Input placeholder={"الاسم"} name={"name"} />
           <Input placeholder={"ايميل"} name={"email"} />
           <Input placeholder={"رمز سري"} name={"password"} />

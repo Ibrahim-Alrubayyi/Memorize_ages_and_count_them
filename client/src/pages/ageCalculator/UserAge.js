@@ -14,7 +14,7 @@ const UserAge = () => {
   }, []);
   return (
     <Container>
-      <h1>عمري {typeDate}</h1>
+      {/* <h1>عمري {typeDate}</h1>
       <hr />
       <h2> سنه</h2>
       <h3>{infoUserAge.ageHj[2].year}</h3>
@@ -34,8 +34,24 @@ const UserAge = () => {
       <h3>{infoUserAge.ageGr[1].month}</h3>
 
       <h2> الايام</h2>
-      <h3>{infoUserAge.ageGr[0].day}</h3>
-      <div></div>
+      <h3>{infoUserAge.ageGr[0].day}</h3> */}
+      <div className=" text-light d-flex flex-column   align-items-center p-3">
+        <div>
+          <h2> العمر بالهجري</h2>
+          <span>
+            {infoUserAge.ageHj[2].year}سنه و شهر {infoUserAge.ageHj[1].month} و
+            يوم {infoUserAge.ageHj[0].day}
+          </span>
+        </div>
+        <hr />
+        <div>
+          <h2> العمر بالميلادي</h2>
+          <span>
+            {infoUserAge.ageGr[2].year}سنه و شهر {infoUserAge.ageGr[1].month} و
+            يوم {infoUserAge.ageGr[0].day}
+          </span>
+        </div>
+      </div>
     </Container>
   );
 };
