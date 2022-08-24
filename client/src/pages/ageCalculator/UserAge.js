@@ -6,36 +6,20 @@ import { Container } from "react-bootstrap";
 const UserAge = () => {
   const infoUserAge = useSelector((state) => state.age.calculatedAge);
   const navigate = useNavigate();
-  const typeDate = infoUserAge.typeDate === "hj" ? "بالهجري" : "بالميلادي";
   useEffect(() => {
     if (!infoUserAge.alert) {
       navigate("/");
     }
   }, []);
   return (
-    <Container>
-      {/* <h1>عمري {typeDate}</h1>
-      <hr />
-      <h2> سنه</h2>
-      <h3>{infoUserAge.ageHj[2].year}</h3>
-
-      <h2> شهر</h2>
-      <h3>{infoUserAge.ageHj[1].month}</h3>
-
-      <h2> الايام</h2>
-      <h3>{infoUserAge.ageHj[0].day}</h3>
-      <hr />
-      <h1>عمري {typeDate === "بالهجري" ? "بالميلادي" : "بالهجري"}</h1>
-
-      <h2> سنه</h2>
-      <h3>{infoUserAge.ageGr[2].year}</h3>
-
-      <h2> شهر</h2>
-      <h3>{infoUserAge.ageGr[1].month}</h3>
-
-      <h2> الايام</h2>
-      <h3>{infoUserAge.ageGr[0].day}</h3> */}
-      <div className=" text-light d-flex flex-column   align-items-center p-3">
+    <Container
+      style={{
+        height: " calc(100vh - 61px)",
+        display: "flex",
+        justifyContent: "space-around",
+      }}
+    >
+      <div className=" text-light d-flex flex-column     p-3 justify-content-center justify-center text-center ">
         <div>
           <h2> العمر بالهجري</h2>
           <span>

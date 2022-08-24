@@ -6,7 +6,6 @@ import { getAllFrindes } from "../adapters/getAllFrindes";
 
 const PrivateRoutes = () => {
   const dispatch = useDispatch();
-  console.log(8);
   const [auth] = React.useState(async () => {
     const testUserToken = await getAllFrindes(dispatch);
 

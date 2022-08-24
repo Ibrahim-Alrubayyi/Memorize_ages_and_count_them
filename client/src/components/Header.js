@@ -72,7 +72,7 @@ const Header = () => {
   };
   return (
     <>
-      <Navbar expand="lg" className="nav">
+      <Navbar expand="lg" className="nav" aria-label="Main navigation">
         <Container>
           <Navbar.Brand
             onClick={handleNavigateToHome}
@@ -81,6 +81,7 @@ const Header = () => {
             لا تنسى العمر
           </Navbar.Brand>
           <Navbar.Toggle
+            data-bs-toggle="offcanvas"
             aria-controls="basic-navbar-nav"
             color="white"
             className=" text-light"
