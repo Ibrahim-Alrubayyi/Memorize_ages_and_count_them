@@ -12,45 +12,52 @@ import AlertsErrors from "../../components/AlertsErrors";
 import { restErForm } from "../../redux-store/Actions/restErorrs";
 
 function Login() {
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
-  const infoUser = useSelector((st) => st.user);
-  const _isLoading = useSelector((state) => state.isLoading.isLoading);
-  const errorsValidtion = useSelector((state) => state.errors.input.form);
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+    const infoUser = useSelector((st) => st.user);
+    const _isLoading = useSelector((state) => state.isLoading.isLoading);
+    const errorsValidtion = useSelector((state) => state.errors.input.form);
 
-  const handleLogin = async () => {
-    restErForm(dispatch);
-    isLoading(dispatch, LODING);
-    await login(dispatch, infoUser.user);
-    isLoading(dispatch, NOT_LODING);
+    const handleLogin = async () => {
+        restErForm(dispatch);
+        isLoading(dispatch, LODING);
+        await login(dispatch, infoUser.user);
+        isLoading(dispatch, NOT_LODING);
 
-    navigate("/profile");
-  };
+        navigate("/profile");
+    };
 
-  const isLoadingOrNot = () => {
-    if (_isLoading) {
-      return <Spinner animation="border" />;
-    } else {
-      return (
-        <>
-          <span className=" text-light fs-3 ">تسجيل دخول</span>{" "}
-          <Input placeholder={"ايميل"} name={"email"} />
-          <Input placeholder={"رمز سري"} name={"password"} />
-          {errorsValidtion.length > 0 ? (
-            <AlertsErrors errors={errorsValidtion} />
-          ) : null}
-          <Button
-            variant="primary"
-            onClick={() => handleLogin()}
-            className="sumbite-btn"
-          >
-            سجل
-          </Button>
-        </>
-      );
-    }
-  };
-  return <Container className=" w-50 mt-5">{isLoadingOrNot()}</Container>;
+    const isLoadingOrNot = () => {
+        if (_isLoading) {
+            return (
+                <div
+                    className=" text-center d-flex   align-items-center justify-content-center"
+                    style={{ height: " calc(100vh - 61px)" }}
+                >
+                    <Spinner animation="border" />
+                </div>
+            );
+        } else {
+            return (
+                <>
+                    <span className=" text-light fs-3 ">تسجيل دخول</span>{" "}
+                    <Input placeholder={"ايميل"} name={"email"} />
+                    <Input placeholder={"رمز سري"} name={"password"} />
+                    {errorsValidtion.length > 0 ? (
+                        <AlertsErrors errors={errorsValidtion} />
+                    ) : null}
+                    <Button
+                        variant="primary"
+                        onClick={() => handleLogin()}
+                        className="sumbite-btn"
+                    >
+                        سجل
+                    </Button>
+                </>
+            );
+        }
+    };
+    return <Container className=" w-50 mt-5">{isLoadingOrNot()}</Container>;
 }
 
 export default Login;
