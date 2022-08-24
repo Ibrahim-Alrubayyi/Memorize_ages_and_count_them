@@ -1,6 +1,6 @@
 # Memorize ages and count them
 
-**Work in progress on the site**
+Go to website <a href='https://latansa.herokuapp.com/'>LaTansa</a>
 
 You will be able to calculate your age and you can register on a site and save the ages of your friends
 
