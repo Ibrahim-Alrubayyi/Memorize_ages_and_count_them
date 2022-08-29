@@ -5766,9 +5766,9 @@ var ShowAllFrindes = function ShowAllFrindes(_ref) {
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("h1", {
                 children: [" \u0627\u0644\u0627\u0633\u0645 : ", el.name]
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("p", {
-                children: ["\u0627\u0644\u0639\u0645\u0631 \u0628\u0627\u0644\u0647\u062C\u0631\u064A : ", el.age.hj[2].year, " \u0633\u0646\u0647 /", el.age.hj[1].month, "\u0634\u0647\u0631 / ", el.age.hj[0].day, "\u064A\u0648\u0645"]
+                children: ["\u0627\u0644\u0639\u0645\u0631 \u0628\u0627\u0644\u0647\u062C\u0631\u064A : ", el.age.hj[2].year, " \u0633\u0646\u0647 /", el.age.hj[1].month, "\u0634\u0647\u0631 / ", el.age.hj[0].day, "\u064A\u0648\u0645", " "]
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("p", {
-                children: ["\u0627\u0644\u0639\u0645\u0631 \u0628\u0627\u0644\u0645\u064A\u0644\u0627\u062F\u064A : ", el.age.gr[2].year, " \u0633\u0646\u0647 /", el.age.gr[1].month, "\u0634\u0647\u0631 / ", el.age.gr[0].day, "\u064A\u0648\u0645"]
+                children: ["\u0627\u0644\u0639\u0645\u0631 \u0628\u0627\u0644\u0645\u064A\u0644\u0627\u062F\u064A : ", el.age.gr[2].year, " ", "\u0633\u0646\u0647 / ", el.age.gr[1].month, "\u0634\u0647\u0631 / ", el.age.gr[0].day, "\u064A\u0648\u0645", " "]
               })]
             })]
           }, ind);
@@ -6198,13 +6198,13 @@ var UserAge = function UserAge() {
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h2", {
           children: " \u0627\u0644\u0639\u0645\u0631 \u0628\u0627\u0644\u0647\u062C\u0631\u064A"
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("span", {
-          children: [infoUserAge.ageHj[2].year, "\u0633\u0646\u0647 \u0648 \u0634\u0647\u0631 ", infoUserAge.ageHj[1].month, " \u0648 \u064A\u0648\u0645 ", infoUserAge.ageHj[0].day]
+          children: [infoUserAge.ageHj[2].year, " \u0633\u0646\u0647 \u0648 \u0634\u0647\u0631", " ", infoUserAge.ageHj[1].month, " \u0648 \u064A\u0648\u0645", " ", infoUserAge.ageHj[0].day]
         })]
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("hr", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h2", {
           children: " \u0627\u0644\u0639\u0645\u0631 \u0628\u0627\u0644\u0645\u064A\u0644\u0627\u062F\u064A"
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("span", {
-          children: [infoUserAge.ageGr[2].year, "\u0633\u0646\u0647 \u0648 \u0634\u0647\u0631 ", infoUserAge.ageGr[1].month, " \u0648 \u064A\u0648\u0645 ", infoUserAge.ageGr[0].day]
+          children: [infoUserAge.ageGr[2].year, " \u0633\u0646\u0647 \u0648 \u0634\u0647\u0631", " ", infoUserAge.ageGr[1].month, " \u0648 \u064A\u0648\u0645", " ", infoUserAge.ageGr[0].day]
         })]
       })]
     })
