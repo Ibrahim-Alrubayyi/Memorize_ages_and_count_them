@@ -4,8 +4,6 @@
 *::before {
     margin: 0;
     padding: 0;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
     box-sizing: border-box;
 }
 :root {
@@ -43,7 +41,7 @@ body {
 /* strat landing */
 .landing {
     color: var(--color-yellow);
-    height: calc(100vh - 61px);
+    height: calc(85vh - 61px);
 
     font-weight: bold;
 }
@@ -62,14 +60,14 @@ body {
 .gray-color {
     color: var(--color-gray-100);
 }
+.bg-yelow {
+    background-color: var(--color-yellow);
+}
 .bg-pink {
     background-color: var(--color-pink-700);
 }
-.bg-yellow {
-    background-color: #ffe742 !important;
-}
 .bg-pink,
-.bg-yellow {
+.bg-yelow {
     color: #171321;
     border: 0;
     font-size: 1.125rem;
@@ -78,12 +76,14 @@ body {
     margin-top: 0.75rem;
     padding: 0.625rem 0.75rem;
 }
-.form-age .bg-pink:hover {
+.form-age .bg-pink:hover,
+.form-age .bg-yelow:hover {
     border: 5px solid black;
 }
 
 .sumbite-btn {
-    background: var(--color-pink-700);
+    background: var(--color-yellow);
+    color: black;
     margin: 0.4rem;
     padding: 0.625rem 0.75rem;
     font-size: 1.125rem;
@@ -149,3 +149,68 @@ footer a {
     background-color: #171321;
 }
 /* end show all frinde*/
+
+.waves {
+    position: relative;
+    width: 100%;
+    height: 15vh;
+    margin-bottom: -7px; /*Fix for safari gap*/
+    min-height: 100px;
+    max-height: 150px;
+}
+
+.content {
+    position: relative;
+    height: 20vh;
+    text-align: center;
+    background-color: white;
+}
+
+/* Animation */
+
+.parallax > use {
+    -webkit-animation: move-forever 25s cubic-bezier(0.55, 0.5, 0.45, 0.5) infinite;
+            animation: move-forever 25s cubic-bezier(0.55, 0.5, 0.45, 0.5) infinite;
+}
+.parallax > use:nth-child(1) {
+    -webkit-animation-delay: -2s;
+            animation-delay: -2s;
+    -webkit-animation-duration: 7s;
+            animation-duration: 7s;
+}
+.parallax > use:nth-child(2) {
+    -webkit-animation-delay: -3s;
+            animation-delay: -3s;
+    -webkit-animation-duration: 10s;
+            animation-duration: 10s;
+}
+.parallax > use:nth-child(3) {
+    -webkit-animation-delay: -4s;
+            animation-delay: -4s;
+    -webkit-animation-duration: 13s;
+            animation-duration: 13s;
+}
+.parallax > use:nth-child(4) {
+    -webkit-animation-delay: -5s;
+            animation-delay: -5s;
+    -webkit-animation-duration: 20s;
+            animation-duration: 20s;
+}
+@-webkit-keyframes move-forever {
+    0% {
+        transform: translate3d(-90px, 0, 0);
+    }
+    100% {
+        transform: translate3d(85px, 0, 0);
+    }
+}
+@keyframes move-forever {
+    0% {
+        transform: translate3d(-90px, 0, 0);
+    }
+    100% {
+        transform: translate3d(85px, 0, 0);
+    }
+}
+/*Shrinking for mobile*/
+
